@@ -1,6 +1,8 @@
 @import url('https://fonts.googleapis.com/css?family=Rubik:400,500&display=swap');
 
-html, body, #r-root {
+html,
+body,
+#r-root {
     min-width: 100%;
     min-height: 100%;
 }
@@ -10,7 +12,7 @@ html, body, #r-root {
 }
 
 #r-here-map {
-    width: 100%; 
+    width: 100%;
     height: 200px
 }
 
@@ -108,11 +110,20 @@ html, body, #r-root {
     margin-top: 28px;
 }
 
-#r-right-arrow, #r-left-arrow {
+#r-right-arrow,
+#r-left-arrow {
     position: absolute;
     top: 339px;
 }
 
 #r-right-arrow {
     right: 0;
+}
+
+.m-audio {
+    width: 1rem;
+    left: 16rem;
+    position: absolute;
+    margin-left: 39%;
+    top: 339px;
 }
