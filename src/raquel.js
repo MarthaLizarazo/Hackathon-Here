@@ -1,3 +1,7 @@
+//import stories from './stories.json';
+//let historiaA = stories.stories.a;
+//historiaA.chapters.ch1.content;
+
 const firebaseConfig = {
   apiKey: 'AIzaSyCEHjwe1uf5vF3gN-uSbQFsIv0ekmK0l-Y',
   authDomain: 'hackathon-here-3548e.firebaseapp.com',
@@ -18,8 +22,21 @@ const platform = new H.service.Platform({
 document.getElementById('r-root').innerHTML = `
 <div id="r-nav-bar">HISTORIAS</div>
 <div id="r-here-map"></div>
+<div>
+        <input type="button" id="m-hablar" value="decir" />
+        </div>
 <div id="r-story"></div>
 `;
+
+let historiaA = 'holahola';
+document.getElementById('m-hablar').addEventListener('click', () => {
+  decir(document.getElementById('historiaA').value);
+  console.log('entre');
+});
+
+function decir(texto) {
+  speechSynthesis.speak(new SpeechSynthesisUtterance(texto));
+}
 
 // Obtain the default map types from the platform object:
 let defaultLayers = platform.createDefaultLayers();
@@ -179,12 +196,17 @@ function getMeAStory(indice) {
         }</div>
         <div id="r-summary">${data[indice].summary}</div>
         </div>
-        <div class="input-single" ${data[indice].summary}>
-        <button>
-        <img id="m-audio" class="m-audio" src="./img/audio.png">
-        </button>        
+  
+        
+        
+    
+
+
         </div>
         `;
+
+      // <button id="m-hablar" class="m-audio" <img src="./img/audio.png"> </img> </button>
+
       document.getElementById('r-right-arrow').addEventListener('click', () => {
         if (data.length === indice + 1) {
           return;
