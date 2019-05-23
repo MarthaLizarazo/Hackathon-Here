@@ -1,7 +1,3 @@
-//import stories from './stories.json';
-//let historiaA = stories.stories.a;
-//historiaA.chapters.ch1.content;
-
 const firebaseConfig = {
   apiKey: 'AIzaSyCEHjwe1uf5vF3gN-uSbQFsIv0ekmK0l-Y',
   authDomain: 'hackathon-here-3548e.firebaseapp.com',
@@ -22,21 +18,29 @@ const platform = new H.service.Platform({
 document.getElementById('r-root').innerHTML = `
 <div id="r-nav-bar">HISTORIAS</div>
 <div id="r-here-map"></div>
-<div>
+      <div>
+      <input type="text" id="texto"/>
         <input type="button" id="m-hablar" value="decir" />
-        </div>
+        <input type="button" id="m-pausa" value="pause" />
+      </div>
 <div id="r-story"></div>
 `;
 
-let historiaA = 'holahola';
+//let historiaA = 'holahola';
 document.getElementById('m-hablar').addEventListener('click', () => {
-  decir(document.getElementById('historiaA').value);
+  decir(document.getElementById('texto').value);
   console.log('entre');
 });
 
 function decir(texto) {
   speechSynthesis.speak(new SpeechSynthesisUtterance(texto));
 }
+
+document.getElementById('m-pausa').addEventListener('click', function() {
+  // hacemos pausa
+  audioElement.pause();
+  console.log('pausando');
+});
 
 // Obtain the default map types from the platform object:
 let defaultLayers = platform.createDefaultLayers();
