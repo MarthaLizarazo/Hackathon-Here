@@ -26,7 +26,16 @@ document.getElementById('r-root').innerHTML = `
 <div id="r-story"></div>
 `;
 
-//let historiaA = 'holahola';
+try {
+  var SpeechRecognition =
+    window.SpeechRecognition || window.webkitSpeechRecognition;
+  var recognition = new SpeechRecognition();
+} catch (e) {
+  console.error(e);
+  $('.no-browser-support').show();
+  $('.app').hide();
+}
+
 document.getElementById('m-hablar').addEventListener('click', () => {
   decir(document.getElementById('texto').value);
   console.log('entre');
@@ -36,10 +45,11 @@ function decir(texto) {
   speechSynthesis.speak(new SpeechSynthesisUtterance(texto));
 }
 
-document.getElementById('m-pausa').addEventListener('click', function() {
-  // hacemos pausa
-  audioElement.pause();
-  console.log('pausando');
+// $('#m-pausa').on('click', function(e) {
+
+texto.on('click', function(e) {
+  recognition.stop();
+  instructions.text('Reconocimiento Pausado.');
 });
 
 // Obtain the default map types from the platform object:
