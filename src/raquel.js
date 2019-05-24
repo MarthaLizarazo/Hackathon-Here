@@ -45,12 +45,11 @@ function decir(texto) {
   speechSynthesis.speak(new SpeechSynthesisUtterance(texto));
 }
 
-// $('#m-pausa').on('click', function(e) {
-
+/*
 texto.on('click', function(e) {
   recognition.stop();
   instructions.text('Reconocimiento Pausado.');
-});
+});*/
 
 // Obtain the default map types from the platform object:
 let defaultLayers = platform.createDefaultLayers();
